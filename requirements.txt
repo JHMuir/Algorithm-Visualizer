@@ -1,1 +1,2 @@
 PyGObject==3.40.1
+pre-commit==3.5.0
