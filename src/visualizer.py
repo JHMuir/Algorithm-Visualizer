@@ -41,12 +41,6 @@ class AlgorithmVisualizer(Gtk.Window):
         self.reset_button.connect("clicked", self.reset_data)
         self.toolbar.pack_start(self.reset_button, False, False, 0)
 
-        # Speed control
-        self.speed_scale = Gtk.Scale(orientation=Gtk.Orientation.HORIZONTAL)
-        self.speed_scale.set_range(10, 1000)
-        self.speed_scale.set_value(500)
-        self.toolbar.pack_start(self.speed_scale, False, False, 0)
-
         # Canvas and Status
         self.main_box.pack_start(self.visualizer_canvas, True, True, 0)
         self.main_box.pack_start(self.status_manager, False, False, 0)
@@ -79,4 +73,4 @@ class AlgorithmVisualizer(Gtk.Window):
                 self.status_manager.update_status("Sorting complete!")
                 return False
 
-        GLib.timeout_add(int(self.speed_scale.get_value()), step)
+        GLib.timeout_add(int(10), step)
