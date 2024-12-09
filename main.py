@@ -1,4 +1,4 @@
-from visualizer import AlgorithmVisualizer
+from src.visualizer import AlgorithmVisualizer
 from gi.repository import Gtk
 
 if __name__ == "__main__":
