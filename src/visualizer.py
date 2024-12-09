@@ -1,8 +1,8 @@
 import gi
-
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, GLib
-from algorithms import AlgorithmManager
-from canvas import VisualizerCanvas, StatusManager
+from .algorithms import AlgorithmManager
+from .canvas import VisualizerCanvas, StatusManager
 
 class AlgorithmVisualizer(Gtk.Window):
     """Main application class."""
