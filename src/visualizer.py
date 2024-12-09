@@ -1,8 +1,7 @@
-import gi
-gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, GLib
 from .algorithms import AlgorithmManager
 from .canvas import VisualizerCanvas, StatusManager
+
 
 class AlgorithmVisualizer(Gtk.Window):
     """Main application class."""
@@ -51,18 +50,25 @@ class AlgorithmVisualizer(Gtk.Window):
     def reset_data(self, widget=None):
         """Reset the dataset."""
         self.algorithm_manager.reset_data()
-        self.status_manager.update_status("Data reset. Select an algorithm and press Start.")
+        self.status_manager.update_status(
+            "Data reset. Select an algorithm and press Start."
+        )
         self.visualizer_canvas.queue_draw()
 
     def start_sorting(self, widget):
         """Start the sorting animation."""
-        if self.algorithm_manager.get_generator(self.algorithm_dropdown.get_active_text()):
+        if self.algorithm_manager.get_generator(
+            self.algorithm_dropdown.get_active_text()
+        ):
             self.algorithm_manager.highlight_indices = (-1, -1)
-            generator = self.algorithm_manager.get_generator(self.algorithm_dropdown.get_active_text())
+            generator = self.algorithm_manager.get_generator(
+                self.algorithm_dropdown.get_active_text()
+            )
             self.animate_sorting(generator)
 
     def animate_sorting(self, generator):
         """Animate the sorting process."""
+
         def step():
             try:
                 next(generator)
