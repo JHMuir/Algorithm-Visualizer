@@ -1,5 +1,5 @@
 from gi.repository import Gtk, GLib
-from .algorithms import AlgorithmManager
+from .algo_manager import AlgorithmManager
 from .canvas import VisualizerCanvas, StatusManager
 
 

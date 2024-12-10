@@ -1,35 +1,15 @@
-import random
-
-class AlgorithmManager:
+class SortingAlgorithms:
     """Handles sorting algorithms and generators."""
 
-    def __init__(self):
-        self.data = []
-        self.highlight_indices = (-1, -1)
-        self.status_message = ""
-
-    def reset_data(self, size=50):
-        """Generate a new random dataset."""
-        self.data = [random.randint(1, 100) for _ in range(size)]
-        self.highlight_indices = (-1, -1)
-
-    def get_generator(self, algorithm):
-        """Return a generator for the selected algorithm."""
-        if algorithm == "Bubble Sort":
-            return self.bubble_sort()
-        elif algorithm == "Quick Sort":
-            return self.quick_sort(0, len(self.data) - 1)
-        elif algorithm == "Merge Sort":
-            return self.merge_sort(0, len(self.data) - 1)
-        elif algorithm == "Insertion Sort":
-            return self.insertion_sort()
+    def __init__(self, data):
+        self.data = data
 
     # Sorting algorithms as generators
     def bubble_sort(self):
         n = len(self.data)
         for i in range(n):
             for j in range(0, n - i - 1):
-                self.highlight_indices = (j, j + 1)
+                # self.highlight_indices = (j, j + 1)
                 self.status_message = f"Comparing indices {j} and {j + 1}"
                 if self.data[j] > self.data[j + 1]:
                     self.data[j], self.data[j + 1] = self.data[j + 1], self.data[j]
@@ -62,7 +42,7 @@ class AlgorithmManager:
             yield from self.merge(left, mid, right)
 
     def merge(self, left, mid, right):
-        temp = self.data[left:right + 1]
+        temp = self.data[left : right + 1]
         i, j, k = 0, mid - left + 1, left
         while i <= mid - left and j <= right - left:
             self.highlight_indices = (left + i, left + j)
