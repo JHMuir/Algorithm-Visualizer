@@ -17,13 +17,27 @@ class TreeAlgorithms:
         self.tree.left.right = self.Node(40)
         self.tree.right.left = self.Node(60)
         self.tree.right.right = self.Node(80)
-        return self.tree
 
     def inorder_traversal(self, node):
-        pass
+        """In-Order Traversal"""
+        if node:
+            self.current_node = node
+            yield from self.inorder_traversal(node.left)
+            yield node
+            yield from self.inorder_traversal(node.right)
 
     def preorder_traversal(self, node):
-        pass
+        """Pre-Order Traversal"""
+        if node:
+            self.current_node = node
+            yield node
+            yield from self.preorder_traversal(node.left)
+            yield from self.preorder_traversal(node.right)
 
     def postorder_traversal(self, node):
-        pass
+        """Post-Order Traversal"""
+        if node:
+            self.current_node = node
+            yield from self.postorder_traversal(node.left)
+            yield from self.postorder_traversal(node.right)
+            yield node
