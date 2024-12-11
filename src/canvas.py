@@ -1,7 +1,7 @@
 from gi.repository import Gtk
 
 
-class VisualizerCanvas(Gtk.DrawingArea):
+class Canvas(Gtk.DrawingArea):
     """Draws the canvas"""
 
     def __init__(self, algorithm_manager):
