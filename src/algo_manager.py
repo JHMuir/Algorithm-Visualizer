@@ -29,8 +29,6 @@ class AlgorithmManager:
     def reset_data(self):
         """Generates a new random dataset."""
         self.data = [random.randint(1, 100) for num in range(50)]
-        self.sorting.data = self.data
-        self.pathfinding.data = self.data
 
     def get_generator(self, algorithm):
         """Return a generator for the selected algorithm."""
