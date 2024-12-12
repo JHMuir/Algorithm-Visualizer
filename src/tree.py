@@ -21,6 +21,7 @@ class TreeAlgorithms:
     def inorder_traversal(self, node):
         """In-Order Traversal"""
         if node:
+            print(node.value)
             self.current_node = node
             yield from self.inorder_traversal(node.left)
             yield node
@@ -29,6 +30,7 @@ class TreeAlgorithms:
     def preorder_traversal(self, node):
         """Pre-Order Traversal"""
         if node:
+            print(node.value)
             self.current_node = node
             yield node
             yield from self.preorder_traversal(node.left)
@@ -37,6 +39,7 @@ class TreeAlgorithms:
     def postorder_traversal(self, node):
         """Post-Order Traversal"""
         if node:
+            print(node.value)
             self.current_node = node
             yield from self.postorder_traversal(node.left)
             yield from self.postorder_traversal(node.right)

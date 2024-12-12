@@ -40,6 +40,7 @@ class TreeCanvas(Gtk.DrawingArea):
         self.current_highlighted = None
         self.connect("draw", self.on_draw)
         self.node_positions = {}
+        print("Tree Canvas init")
 
     def calculate_positions(self, node, x, y, level, width):
         if not node:
@@ -59,11 +60,10 @@ class TreeCanvas(Gtk.DrawingArea):
         width = self.get_allocated_width()
         # height = self.get_allocated_height()
 
-        # Calculate positions if we have a tree
-        if hasattr(self.algorithm_manager, "tree_algorithms"):
-            tree = self.algorithm_manager.tree_algorithms.tree
-            if tree:
-                self.calculate_positions(tree, width / 2, 50, 1, width / 2)
+        print("Drawing Tree Canvas")
+        self.calculate_positions(
+            self.algorithm_manager.tree.tree, width / 2, 50, 1, width / 2
+        )
 
         # Draw edges first
         cr.set_line_width(2)

@@ -19,11 +19,11 @@ class AlgorithmManager:
     def get_algo_names(self):
         sorting_algos = dict()
         tree_algos = dict()
-        for name, member in inspect.getmembers(SortingAlgorithms()):
+        for name, member in inspect.getmembers(self.sorting):
             if inspect.isfunction(member) or inspect.ismethod(member):
                 if member.__doc__ is not None:
                     sorting_algos.update({member.__doc__: member})
-        for name, member in inspect.getmembers(TreeAlgorithms()):
+        for name, member in inspect.getmembers(self.tree):
             if inspect.isfunction(member) or inspect.ismethod(member):
                 if member.__doc__ is not None:
                     tree_algos.update({member.__doc__: member})

@@ -73,7 +73,9 @@ class AlgorithmVisualizer(Gtk.Window):
         if widget.get_active_text() == "Sorting":
             self.current_canvas = self.sorting_canvas
         else:
+            print("Vis Type CHanged")
             self.current_canvas = self.tree_canvas
+            self.current_canvas.on_draw()
             self.algorithm_manager.tree.create_sample_tree()
 
         self.main_box.pack_start(self.current_canvas, True, True, 0)
