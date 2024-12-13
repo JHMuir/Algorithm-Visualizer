@@ -1,3 +1,5 @@
+import gi
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, GLib
 from .algo_manager import AlgorithmManager
 from .canvas import Canvas, StatusManager
@@ -8,7 +10,7 @@ class AlgorithmVisualizer(Gtk.Window):
 
     def __init__(self):
         super().__init__(title="Algorithm Visualizer")
-        self.set_border_width(10)
+        # self.set_border_width(10)
         self.set_default_size(800, 600)
 
         # Components
@@ -77,4 +79,4 @@ class AlgorithmVisualizer(Gtk.Window):
                 self.status_manager.update_status("Sorting complete!")
                 return False
 
-        GLib.timeout_add(int(10), step)
+        GLib.timeout_add(int(20), step) # Edit number for speed
